@@ -16,7 +16,7 @@ public class Image {
     private String imageName;
     private boolean icon;
     private String url;
-    @Column(name = "image_data")
+    @Column(name = "image_data", columnDefinition = "LONGTEXT")
     @Lob
     private String imageData;//use blob for big image
     @ManyToOne(cascade ={

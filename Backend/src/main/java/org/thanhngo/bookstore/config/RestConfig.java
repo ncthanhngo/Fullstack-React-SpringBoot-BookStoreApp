@@ -27,14 +27,19 @@ public class RestConfig implements RepositoryRestConfigurer {
                          //config.exposeIdsFor(Book.class,Order.class);
 
     }
+
     //block HttpMethods
-    private String url = "http://localhost:8080";
+    private String url = "http://localhost:3000";
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         RepositoryRestConfigurer.super.configureRepositoryRestConfiguration(config, cors);
 //        BlockedMethods(Category.class,config,blockedMethods);// Block Category class
         BlockedMethods(User.class,config,blockUserDelete);// Block User class delete any user
+        //CORS Còniguration
+        cors.addMapping("/**")// Cho tất cả các request từ frontend vào server
+                .allowedOrigins(url)
+                .allowedMethods("GET", "POST", "PUT", "DELETE");
     }
     private void BlockedMethods(Class c, RepositoryRestConfiguration config,HttpMethod[] blockedMethods) {
         config.getExposureConfiguration()
