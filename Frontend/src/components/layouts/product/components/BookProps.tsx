@@ -24,21 +24,22 @@ const BookProps: React.FC<BookProps> = ( props ) => {
         });
        
             if((loading && images.length === 0) || error){
-                return (<div className="container">
-                    <div className="row mt-4">
-                        <div className="col-md-12">
-                            <div className="alert alert-danger" role="alert">
-                                {error}
-                            </div>
-                        </div>
-                    </div>
+                return (<div >
+                    
+                    <h1>{error}</h1>      
+                    
                 </div>);
+            }
+            let imageData:string ="";
+            //Book co the khong co anh
+            if(images[0] && images[0].imageData){
+                imageData = images[0].imageData;
             }
     return (
         <div className="col-md-3 mt-2">
             <div className="card">
                 <img
-                    src={""}
+                    src={imageData}
                     className="card-img-top"
                     alt={props.book.bookName}
                     style={{ height: '200px' }}

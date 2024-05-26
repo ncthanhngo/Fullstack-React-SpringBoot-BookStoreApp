@@ -2,6 +2,7 @@ package org.thanhngo.bookstore.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 @Entity
 @Data

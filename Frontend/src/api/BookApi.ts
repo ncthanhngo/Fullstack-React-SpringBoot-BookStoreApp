@@ -2,10 +2,9 @@ import React from "react";
 import BookModel from "../models/BookModel";
 import { myRequest } from "./MyRequest";
 
-export async function getAllBooks(): Promise<BookModel[]> {
+async function getBook(endpoint: string): Promise<BookModel[]> {
   const result: BookModel[] = [];
   //Endpoint
-  const endpoint: string = "http://localhost:8088/books";
   //call request
   const response = await myRequest(endpoint);
   // Do response trả về nhiều giá trị nên cần check console trên trình duyệt để lấy ra giá trị mong muốn
@@ -27,4 +26,13 @@ export async function getAllBooks(): Promise<BookModel[]> {
   }
   console.log(result);
   return result;
+}
+
+export async function getAllBooks(): Promise<BookModel[]> {
+  const endpoint: string = "http://localhost:8088/books?sort=bookId,desc";
+  return await getBook(endpoint);
+}
+export async function getThreeRatingBooks(): Promise<BookModel[]> {
+  const endpoint: string = "http://localhost:8088/books?sort=rating,desc";
+  return await getBook(endpoint);
 }
