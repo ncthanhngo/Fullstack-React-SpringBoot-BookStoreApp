@@ -3,11 +3,12 @@ import './App.css';
 import Navbar from './components/layouts/header-footer/Navbar';
 import HomePage from './components/layouts/homepage/HomePage';
 import Footer from './components/layouts/header-footer/Footer';
-import Products from './components/layouts/product/Products';
 function App() {
+  const [keySearch, setKeySearch] = React.useState('');
+
   return (
     <div className='App'>
-      <Navbar />
+      <Navbar keySearch={keySearch} setKeySearch={setKeySearch}/>
       <HomePage/>
       <Footer/>
     </div>

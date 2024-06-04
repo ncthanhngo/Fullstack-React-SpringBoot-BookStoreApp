@@ -36,3 +36,8 @@ export async function getThreeRatingBooks(): Promise<BookModel[]> {
   const endpoint: string = "http://localhost:8088/books?sort=rating,desc";
   return await getBook(endpoint);
 }
+export async function searchBook(keyword: string): Promise<BookModel[]> {
+  const endpoint: string = `http://localhost:8088/books/search/findByBookNameContaining?bookName=${keyword}&size=8&page=0&sort=bookId,desc`;
+  
+  return await getBook(endpoint);
+}

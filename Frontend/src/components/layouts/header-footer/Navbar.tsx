@@ -1,5 +1,9 @@
 import React from "react";
-function Navbar() {
+interface NavbarProps{
+  keySearch: string;
+  setKeySearch: (key: string) => void;
+}
+function Navbar({keySearch, setKeySearch}: NavbarProps)  {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">

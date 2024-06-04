@@ -4,6 +4,7 @@ interface PaginationInterface {
     currentPage: number;
     totalPages: number;
     pagination: any;
+    
 }
 
 export const Pagination: React.FC<PaginationInterface> = (props) => {

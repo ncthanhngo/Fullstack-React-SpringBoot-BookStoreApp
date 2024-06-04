@@ -7,4 +7,7 @@ import org.thanhngo.bookstore.entity.User;
 @Repository
 @RestResource(path = "users", rel = "users")
 public interface UserRepository extends JpaRepository<User, Integer> {
+    boolean existsByUserName(String username);
+    boolean existsByEmail(String email);
 }
+
